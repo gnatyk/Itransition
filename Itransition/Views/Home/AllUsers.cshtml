@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Itransition.Models.ApplicationUser>
+@{
+    ViewBag.Title = "AllUsers";
+}
+
+<h2>AllUsers - @Model.Count()</h2>
+
+<table class =" table table-bordered table-hover table-responsive  ">
+    <tr>
+        
+        <th>Id</th>
+        <th>Email</th>
+    </tr>
+    
+   
+    @foreach (var user in Model)
+    {
+        
+        <tr> 
+            <td>
+                <a href="@Url.Action("Profile","Home",new{id = user.Id})">
+                    @user.Id
+                </a>
+            </td>
+            <td>
+                @user.Email
+            </td> 
+        </tr>
+    }
+</table>
